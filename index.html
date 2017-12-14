@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+        
+        <!-- Font awesome -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/publock.css" />
+        
+        <title>Publock</title>
+    </head>
+    
+    <body>
+       
+        <div id="pu-app-container">
+            
+            <div id="pu-top-pane" class="pu-pane">
+                <h1>Publock</h1>
+            </div>
+            
+            <div id="pu-menu-pane" class="pu-pane">
+            
+                <ul>
+                    <li onclick="loadKeys()"><i class="fa fa-key" aria-hidden="true"></i> RSA keys</li>
+                </ul>
+                   
+                <ul id="pu-publock-list">
+                    <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i> publock #1</li>
+                    <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i> publock #1</li>
+                    <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i> publock #1</li>
+                    <li><i class="fa fa-plus-circle" aria-hidden="true"></i> Add publock</li>
+                </ul>
+            
+            </div>
+            
+            <div id="pu-content-pane" class="pu-pane">
+               
+                <div id="pu-content-keys" class="pu-content-container">
+                    
+                    <ul id="pu-key-list">
+                        <li>key #1</li>
+                        <li>key #1</li>
+                        <li>key #1</li>
+                        <li>key #1</li>
+                        <li>+ generate key</li>
+                    </ul>
+                    
+                    <div id="pu-key-details">
+                        
+                        <h3>public</h3>
+                        <textarea id="pu-keys-public" readonly></textarea>
+                        
+                        <h3>private</h3>
+                        <textarea id="pu-keys-private" readonly></textarea>
+                        
+                        <a onclick="deleteKey()">Delete key</a>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div id="pu-content-publock" class="pu-content-container">
+                   
+                   <div id="pu-content-publock-left-pane">
+                        <div id="pu-content-publock-info">
+
+                            <h3>publock #<span id="publock-id"></span></h3>
+
+                            <p>connections: <span id="publock-connections"></span></p>
+                            <p>messages: <span id="publock-messages-size"></span></p>
+                            
+                            <p id="publock-delete"></p>
+
+                        </div>
+
+                        <div id="pu-content-add-message">
+
+                            <h3>Add message</h3>
+
+                            <h4>Pseudonym:</h4>
+
+                            <textarea id="publock-pseudonym-input"></textarea>
+
+                            <h4>Message</h4>
+
+                            <textarea id="publock-message-input"></textarea>
+                            
+                            <h4>Keypair</h4>
+                            
+                            <select id="publock-keypair-input">
+                            
+                            </select>
+                            
+                            <a onclick="addMessage()">Add message</a>
+
+                        </div>
+                    </div>
+                        
+                    <div id="pu-content-publock-messagelist">
+                      
+                        <h3>MessageChain</h3>
+                       
+                        <div class="pu-message">
+                            
+                            <span class="pu-message-field pu-message-hash">sdfj</span>
+                            
+                            <span class="pu-message-field pu-message-pseudonym">sldkfsdlfkj</span>
+                            
+                            <span class="pu-message-field pu-message-body">This is a message</span>
+                            
+                            <span class="pu-message-field pu-message-date"></span>
+                            
+                            <span class="pu-message-field pu-message-public-key"></span>
+                            
+                            <span class="pu-message-field pu-message-encrypted-hash"></span>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <script src="js/publock.js"></script>
+        <script src="js/node-rsa.js"></script>
+        <script src="js/publock-example.js"></script>
+    </body>
+    
+</html>

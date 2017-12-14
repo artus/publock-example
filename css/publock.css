@@ -1,0 +1,321 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    font-family: 'Roboto', sans-serif;
+}
+
+:root
+{
+    --main-background-color: #28314E;
+    --second-background-color: #ced1db;
+    --top-pane-height: 60px;
+    --menu-pane-width: 200px;
+}
+
+#pu-app-container
+{
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+    
+    background-color: var(--main-background-color);
+}
+
+.pu-pane
+{
+    float: left;
+}
+
+#pu-top-pane
+{
+    width: 100%;
+    height: var(--top-pane-height);
+    
+    padding: 15px;
+}
+
+#pu-top-pane h1
+{
+    color: white;
+    font-size: 30px;
+}
+
+#pu-menu-pane
+{
+    width: var(--menu-pane-width);
+    height: calc(100% - var(--top-pane-height));
+    
+    background-color: #1d243a;
+    
+    color: #ced1db;
+    
+    padding-top: 15px;
+}
+
+#pu-menu-pane ul 
+{
+    list-style: none;
+}
+
+#pu-menu-pane ul li
+{
+    padding: 7px;
+    padding-left: 30px;
+    
+    font-size: 17px;
+    
+    cursor: pointer;
+}
+
+#pu-menu-pane ul li:hover
+{
+    background-color: #42507c;
+}
+
+#pu-menu-pane ul ul li
+{
+    padding-left: 40px;
+}
+
+#pu-content-pane
+{
+    width: calc(100% - var(--menu-pane-width));
+    height: calc(100% - var(--top-pane-height));
+    background-color: #ced1db;
+    
+    overflow: hidden;
+    
+    position: relative;
+}
+
+.pu-content-container
+{
+    position: absolute;
+    
+    background-color: #ced1db;
+    
+    width: 100%;
+    height: 100%;
+}
+
+#pu-content-keys ul
+{
+    float: left;
+    height: 100%;
+    
+    border-right: 2px solid var(--main-background-color);
+}
+
+#pu-content-keys ul li
+{
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    width: 197px;
+    
+    border-bottom: 1px solid var(--main-background-color);
+    
+    cursor: pointer;
+}
+
+#pu-content-keys ul li:hover
+{
+    background-color: white;
+}
+
+#pu-content-keys ul li:last-child
+{
+    background-color: lightgreen;
+}
+
+#pu-content-keys ul li:last-child:hover
+{
+    background-color: lawngreen;
+}
+
+#pu-key-details
+{
+    float: left;
+    
+    width: calc(100% - 200px);
+    height: 100%;
+    
+    padding: 30px;
+    
+    background-image: url('../img/bg-pattern.jpg');
+    background-repeat: repeat;
+}
+
+#pu-key-details h3
+{
+    margin-bottom: 10px;
+}
+
+#pu-key-details textarea
+{
+    resize: none;
+    background-color: white;
+    
+    border: 1px solid black;
+    
+    width: 100%;
+    height: 30%;
+    
+    padding: 10px;
+    
+    margin-bottom: 20px;
+    
+    font-size: 15px;
+}
+
+#pu-key-details a
+{
+    padding: 10px;
+    background-color: firebrick;
+    color: white;
+    
+    cursor: pointer;
+}
+
+#pu-key-details a:hover
+{
+    background-color: lightcoral;
+}
+
+#pu-content-publock-left-pane
+{
+    float: left;
+    width: 50%;
+    height: 100%;
+    border-right: 3px solid var(--main-background-color);
+    
+    overflow: auto;
+}
+
+#pu-content-publock-info
+{
+    padding: 30px;
+}
+
+#pu-content-publock-info h3
+{
+    margin-bottom: 20px;
+}
+
+#publock-delete
+{
+    margin-top: 20px;
+}
+
+#publock-delete a
+{
+    width: auto;
+    background-color: firebrick;
+    padding: 10px;
+    
+    color: white;
+    
+    cursor: pointer;
+}
+
+#publock-delete a:hover
+{
+    background-color: lightcoral;
+}
+
+#pu-content-add-message
+{
+    padding: 30px;
+}
+
+#pu-content-add-message h3
+{
+    margin-bottom: 20px;
+}
+
+#pu-content-add-message h4
+{
+    margin-bottom: 15px;
+}
+
+#pu-content-add-message textarea
+{
+    width: 100%;
+    resize: none;
+    
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#publock-keypair-input
+{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+#pu-content-add-message a
+{
+    background-color: lightgreen;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#pu-content-add-message a:hover
+{
+    background-color: lawngreen;
+}
+
+#pu-content-publock-messagelist
+{
+    background-color: white;
+    float: left;
+    width: 50%;
+    height: 100%;
+    padding: 15px;
+    
+    overflow-y: auto;
+    
+    background-image: url('../img/bg-pattern.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.pu-message
+{
+    margin-top: 30px;
+    overflow: auto;
+    width: 100%;
+    border: 2px solid var(--main-background-color);
+    
+    background-color: var(--second-background-color);
+    word-wrap: break-word;
+    
+    font-size: 12px;
+}
+
+.pu-message-field
+{
+    float: left;
+    width: 100%;
+    padding: 10px;
+    
+    border-bottom: 2px solid var(--main-background-color);
+}
+
+.pu-message-field:last-child
+{
+    border: 0;
+}
+
+.pu-message-hash
+{
+    background-color: var(--main-background-color);
+    color: white;
+    font-weight: bold;
+}
