@@ -54,6 +54,8 @@
     color: #ced1db;
     
     padding-top: 15px;
+    
+    overflow: auto;
 }
 
 #pu-menu-pane ul 
