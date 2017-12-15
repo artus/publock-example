@@ -245,5 +245,4 @@ createKey();
 loadKey(0);
 updatePublockList();
 updateKeyList();
-//loadKeys();
-loadPlayground();
+loadKeys();
