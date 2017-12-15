@@ -27,6 +27,7 @@
             
                 <ul>
                     <li onclick="loadKeys()"><i class="fa fa-key" aria-hidden="true"></i> RSA keys</li>
+                    <li onclick="loadPlayground()"><i class="fa fa-key" aria-hidden="true"></i> RSA playground</li>
                 </ul>
                    
                 <ul id="pu-publock-list">
@@ -39,6 +40,29 @@
             </div>
             
             <div id="pu-content-pane" class="pu-pane">
+              
+                <div id="pu-content-playground" class="pu-content-container">
+                   
+                   <h3>RSA Playground</h3>
+                   
+                   <select id="publock-playground-keys">
+                       
+                   </select>
+                   
+                   <h4>Decrypted data</h4>
+                   
+                   <textarea id="publock-playground-input"></textarea>
+                   
+                   <a onclick="encryptData()">Encrypt</a>
+                   
+                   <h4>Encrypted data</h4>
+                   
+                   <textarea id="publock-playground-output"></textarea>
+                   
+                   <a onclick="decryptData()">Decrypt</a>
+                    
+                </div>
+                
                
                 <div id="pu-content-keys" class="pu-content-container">
                     

@@ -321,3 +321,45 @@
     color: white;
     font-weight: bold;
 }
+
+#pu-content-playground
+{
+    padding: 10px;
+}
+
+#pu-content-playground h3
+{
+    margin-bottom: 10px;
+}
+
+#pu-content-playground select
+{
+    width: 100%;
+    padding 5px;
+    margin-bottom: 10px;
+}
+
+#pu-content-playground textarea
+{
+    margin-top: 10px;
+    width: 100%;
+    height: 30%;
+    
+    resize: none;
+}
+
+#pu-content-playground a
+{
+    display: inline-block;
+    padding: 10px;
+    background-color: lightgreen;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    cursor: pointer;
+}
+
+#pu-content-playground a:hover
+{
+    background-color: limegreen;
+}

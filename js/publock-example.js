@@ -8,6 +8,7 @@ var keyPrivateDiv = document.getElementById("pu-keys-private");
 
 var keyDiv = document.getElementById("pu-content-keys");
 var publockDiv = document.getElementById("pu-content-publock");
+var playgroundDiv = document.getElementById("pu-content-playground");
 
 var publockListDiv = document.getElementById("pu-publock-list");
 
@@ -23,6 +24,10 @@ var publockMessageListDiv = document.getElementById("pu-content-publock-messagel
 var pseudonymInput = document.getElementById("publock-pseudonym-input");
 var messageInput = document.getElementById("publock-message-input");
 var keypairInput = document.getElementById("publock-keypair-input");
+
+var playgroundKeysDiv = document.getElementById("publock-playground-keys");
+var playgroundInput = document.getElementById("publock-playground-input");
+var playgroundOutput = document.getElementById("publock-playground-output");
 
 var activePublock;
 var activeKeyId;
@@ -100,6 +105,7 @@ function loadKey(keyId)
 function loadKeys()
 {
     keyDiv.style.zIndex = "1";
+    playgroundDiv.style.zIndex = "0";
     publockDiv.style.zIndex = "0";
 }
 
@@ -128,6 +134,7 @@ function loadPublock(publockId)
     loadPublockMessages(publockId);
     
     keyDiv.style.zIndex = "0";
+    playgroundDiv.style.zIndex = "0";
     publockDiv.style.zIndex = "1";
 }
 
@@ -176,8 +183,67 @@ function updatePublockList()
     publockListDiv.innerHTML = generatedHTML;
 }
 
+function loadPlayground()
+{
+    loadPlaygroundKeys();
+    
+    keyDiv.style.zIndex = "0";
+    publockDiv.style.zIndex = "0";
+    playgroundDiv.style.zIndex = "1";
+}
+
+function loadPlaygroundKeys()
+{
+    var keyHTML = "";
+    
+    for (var keyId of keyList.keys())
+    {
+        keyHTML = keyHTML + '<option value="' + keyId + '">key #' + keyId + '</option>';
+    }
+    
+    playgroundKeysDiv.innerHTML = keyHTML;
+}
+
+function encryptData()
+{
+    var dataToEncrypt = playgroundInput.value;
+    var key = keyList.get(parseInt(playgroundKeysDiv.value));
+    var output = "";
+    
+    try
+    {
+        output = key.encryptPrivate(dataToEncrypt, 'base64');
+    }
+    catch (error)
+    {
+        alert(error);
+    }
+    
+    playgroundOutput.value = output;
+}
+
+function decryptData()
+{
+    var dataToDecrypt = playgroundOutput.value;
+    var key = keyList.get(parseInt(playgroundKeysDiv.value));
+    var output = "";
+    
+    try
+    {
+        output = key.decryptPublic(dataToDecrypt, 'utf8');
+    }
+    catch(error)
+    {
+        alert(error);
+    }
+    
+    playgroundInput.value = output;
+}
+
+
 createKey();
 loadKey(0);
 updatePublockList();
 updateKeyList();
-loadKeys();
+//loadKeys();
+loadPlayground();
